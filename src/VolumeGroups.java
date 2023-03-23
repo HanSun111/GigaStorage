@@ -1,19 +1,21 @@
 import java.util.ArrayList;
 public class VolumeGroups extends LVM{
     private String name;
-    private ArrayList<LogicalVolumes> LV;
-    public VolumeGroups(String name){
+    private int size;
+    private final ArrayList<PhysicalVolume> PV = new ArrayList<PhysicalVolume>();
+    public VolumeGroups(PhysicalVolume p){
         super();
         this.name = name;
-        LV = new ArrayList<LogicalVolumes>();
+        size = totalStorage();
+        PV.add(p);
     }
-    public void addLV(LogicalVolumes l){
-        LV.add(l);
+    public void addLV(PhysicalVolume p){
+        PV.add(p);
     }
     public int totalStorage(){
         int t = 0;
-        for(int i = 0; i < LV.size(); i++){
-            t += LV.get(i).getSize();
+        for (PhysicalVolume physicalVolume : PV) {
+            t += physicalVolume.getGigs();
         }
         return t;
     }

@@ -6,7 +6,11 @@ public class LVM {
         UUIDToString = u.toString();
     }
 
-    public void getUUID() {
+    public String getUUIDToString() {
+        return UUIDToString;
+    }
+
+    public void printUUID() {
         System.out.println(UUIDToString);
     }
 }
