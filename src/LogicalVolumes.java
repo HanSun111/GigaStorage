@@ -1,17 +1,6 @@
 public class LogicalVolumes extends LVM{
-    private String name;
-    private int size;
     public LogicalVolumes(String n, int s){
-        super();
-        name = n;
-        size = s;
+        super(n, s);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getSize() {
-        return size;
-    }
 }
